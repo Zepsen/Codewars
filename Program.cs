@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new MissingAlphabets();
+            ICodeWars war = new Wave();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }
