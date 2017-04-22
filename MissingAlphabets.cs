@@ -10,11 +10,9 @@ public class MissingAlphabets : ICodeWars
     }
 
     public static string Func(string s)
-    {
-        var ABC = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-        var DIC = ABC.ToDictionary(c => c, count => 0);
-        var res = s.Select(i => DIC[i]++);       
-                
-        return "asd";
+    {       
+        var DIC = "abcdefghijklmnopqrstuvwxyz".ToDictionary(c => c, count => 0);
+        var max = s.Select(i => ++DIC[i]).Max(); 
+        return string.Join("", DIC.Where(i => i.Value < max).Select(i => new string(i.Key, max - i.Value)));         
     }
 }
