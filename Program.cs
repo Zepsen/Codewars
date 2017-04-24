@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new Wave();
+            ICodeWars war = new HappyG();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }
