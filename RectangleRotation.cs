@@ -5,13 +5,17 @@ public class RectangleRotation : ICodeWars
 {
     object ICodeWars.Start()
     {
-        return Func(6, 4);
+        return Func(6 ,4);
     }
 
-    public static object Func(int x, int y)
+    public object Func(int x, int y)
     {        
-        var vectorRotation = Vector.VecRotation(45);
-        return null;
+        var angl = Math.PI * 45 / 180.0;   
+        var vector = Vector.VecRotation(angl);
+        var rectangle = Rectangle.DefaultRectangle(x, y);
+        var rotatedRectangle = Rectangle.GetRotatedRectangle(rectangle, vector);
+        var res = Rectangle.CountPoints(rotatedRectangle, x,y );
+        return res;
     }
 
     
@@ -33,7 +37,7 @@ public struct Coordinates
         return new Coordinates
         {
             X = coor.X * vector.VX.X + coor.Y * vector.VY.X,
-            Y = coor.X * vector.VY.X + coor.Y * vector.VY.Y
+            Y = coor.X * vector.VY.Y + coor.Y * vector.VY.Y
         };
     }
     
@@ -42,27 +46,22 @@ public struct Coordinates
 public struct Vector
 {
     public Coordinates VX, VY;
-    public Vector(Coordinates x, Coordinates y)
-    {
-        VX = x;
-        VY = y;
-    }
     
-    public static Vector VecRotation(int angle = 0)
-    {
+    public static Vector VecRotation(double angle = 0.0)
+    {             
         return new Vector
         {
             VX = new Coordinates
-            (
-                1 * Math.Cos(angle) + 0 * Math.Sin(angle), 
-                0 * Math.Cos(angle) - 1 * Math.Sin(angle) 
-            ),
+            {
+               X =  (Math.Cos(angle) * 1) - (Math.Sin(angle) * 0) , 
+               Y =  (Math.Cos(angle) * 0) + (Math.Sin(angle) * 1) 
+            },
 
             VY = new Coordinates
-            (
-                0 * Math.Cos(angle) + 1 * Math.Sin(angle),
-                1 * Math.Cos(angle) - 0 * Math.Sin(angle)
-            )                        
+            {
+               X = (0 * Math.Cos(angle)) - (1 * Math.Sin(angle)),
+               Y =  (1 * Math.Cos(angle)) + (0 * Math.Sin(angle))
+            }                        
         };
     }
 
@@ -71,6 +70,25 @@ public struct Vector
 public struct Rectangle 
 {
     public Coordinates A, B, C, D;
+
+    public Rectangle(Coordinates a, Coordinates b, Coordinates c, Coordinates d)
+    {
+        A = a; 
+        B = b;
+        C = c;
+        D = d;       
+    }
+
+    public static Rectangle DefaultRectangle(int x, int y)
+    {
+        return new Rectangle
+        {
+            A = new Coordinates(-(x/2), y/2),
+            B = new Coordinates(x/2, y/2),
+            C = new Coordinates(x/2, -(y/2)),
+            D = new Coordinates(-(x/2), -(y/2))
+        };
+    }
 
     public static Rectangle GetRotatedRectangle(Rectangle rect, Vector vector)
     {
@@ -81,5 +99,38 @@ public struct Rectangle
             C = Coordinates.RotateCoordinates(rect.C, vector),  
             D = Coordinates.RotateCoordinates(rect.D, vector)
         };
+    }
+
+    public static int CountPoints(Rectangle rect, int x , int y)
+    {
+        // var ab = Math.Sqrt(Math.Pow(rect.B.X - rect.A.X, 2) + Math.Pow(rect.B.Y - rect.A.Y, 2));
+        // var bc = Math.Sqrt(Math.Pow(rect.C.X - rect.B.X, 2) + Math.Pow(rect.C.Y - rect.B.Y, 2));
+        
+        var rect2 = new Rectangle
+        {
+            A = new Coordinates{ X = (int)rect.A.X, Y = Math.Round(rect.A.Y) },
+            B = new Coordinates{ X = (int)rect.B.X, Y = Math.Round(rect.B.Y) },
+            C = new Coordinates{ X = (int)rect.C.X, Y = Math.Round(rect.C.Y) },
+            D = new Coordinates{ X = (int)rect.D.X, Y = Math.Round(rect.D.Y) },
+        };
+        
+        var ab = Math.Sqrt(Math.Pow(rect2.B.X - rect2.A.X, 2) + Math.Pow(rect2.B.Y - rect2.A.Y, 2));
+        var bc = Math.Sqrt(Math.Pow(rect2.C.X - rect2.B.X, 2) + Math.Pow(rect2.C.Y - rect2.B.Y, 2));
+        var s = ab*bc;
+        var gcd = 2 * (GCD(rect2.A) + GCD(rect2.B));        
+        var insidePoints = Convert.ToInt32(s - gcd/2 + 1);
+        return insidePoints; 
+    }
+
+    public static double GCD(Coordinates coor)
+    {       
+        var a = (int)coor.X;
+        var b = (int)coor.Y;
+        while (b != 0) 
+        {
+            b = a % (a = b);
+        }
+        
+        return a;
     }
 }
