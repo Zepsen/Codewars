@@ -103,23 +103,44 @@ public struct Rectangle
 
     public static int CountPoints(Rectangle rect, int x , int y)
     {
+        int res = 0;
+        for(int i = (int)rect.A.X; i < (int)rect.C.X; i++)
+        {
+            for(int j = (int)rect.D.Y; i < (int)rect.B.Y; i++)
+            {                
+                if(
+                    rect.A.X > i && rect.A.Y > j &&
+                    rect.B.X > i && rect.B.Y > j &&
+                    rect.C.X > i && rect.C.Y > j &&
+                    rect.D.X > i && rect.D.Y > j )
+                {
+                    res++;
+                }
+            }
+        }
+
+        return res;
+
         // var ab = Math.Sqrt(Math.Pow(rect.B.X - rect.A.X, 2) + Math.Pow(rect.B.Y - rect.A.Y, 2));
         // var bc = Math.Sqrt(Math.Pow(rect.C.X - rect.B.X, 2) + Math.Pow(rect.C.Y - rect.B.Y, 2));
         
-        var rect2 = new Rectangle
-        {
-            A = new Coordinates{ X = (int)rect.A.X, Y = Math.Round(rect.A.Y) },
-            B = new Coordinates{ X = (int)rect.B.X, Y = Math.Round(rect.B.Y) },
-            C = new Coordinates{ X = (int)rect.C.X, Y = Math.Round(rect.C.Y) },
-            D = new Coordinates{ X = (int)rect.D.X, Y = Math.Round(rect.D.Y) },
-        };
+        // var rect2 = new Rectangle
+        // {
+        //     A = new Coordinates{ X = (int)rect.A.X, Y = Math.Round(rect.A.Y) },
+        //     B = new Coordinates{ X = Math.Round(rect.B.X), Y = (int)rect.B.Y },
+        //     C = new Coordinates{ X = (int)rect.C.X, Y = Math.Round(rect.C.Y) },
+        //     D = new Coordinates{ X = Math.Round(rect.D.X), Y = (int)rect.D.Y },
+        // };
         
-        var ab = Math.Sqrt(Math.Pow(rect2.B.X - rect2.A.X, 2) + Math.Pow(rect2.B.Y - rect2.A.Y, 2));
-        var bc = Math.Sqrt(Math.Pow(rect2.C.X - rect2.B.X, 2) + Math.Pow(rect2.C.Y - rect2.B.Y, 2));
-        var s = ab*bc;
-        var gcd = 2 * (GCD(rect2.A) + GCD(rect2.B));        
-        var insidePoints = Convert.ToInt32(s - gcd/2 + 1);
-        return insidePoints; 
+        // var ab = Math.Sqrt(Math.Pow(rect2.B.X - rect2.A.X, 2) + Math.Pow(rect2.B.Y - rect2.A.Y, 2));
+        // var bc = Math.Sqrt(Math.Pow(rect2.C.X - rect2.B.X, 2) + Math.Pow(rect2.C.Y - rect2.B.Y, 2));
+        // var s = ab*bc;
+        // var gcd = 2 * (GCD(rect2.A) + GCD(rect2.B));        
+        // var insidePoints = Convert.ToInt32(s - gcd/2 + 1);
+        // var borderPoints = 2 * ab + 2 * bc;        
+        // var insidePoints = (ab - 1) * (bc - 1);
+        // var res = insidePoints + borderPoints; 
+        // return Convert.ToInt32(res);
     }
 
     public static double GCD(Coordinates coor)

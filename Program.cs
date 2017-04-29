@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new RectangleRotation();
+            ICodeWars war = new Darts();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }

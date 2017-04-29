@@ -17,7 +17,7 @@ public class Wave : ICodeWars
             var str = s.ToCharArray();
             str[i] = char.ToUpper(e);
             return new string(str);
-        }).ToArray();  
+        }).Where(i => i != s).ToArray();  
         return "null";      
     } 
 } 
