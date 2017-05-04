@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new StrRepeat();
+            ICodeWars war = new StrSplitToArray();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }
