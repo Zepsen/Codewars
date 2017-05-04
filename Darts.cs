@@ -48,14 +48,17 @@ namespace Codewars
         public readonly static string MISS = "X";
         public readonly static string BULL_EYE = "DB";
         public readonly static string BULL = "SB";
-        public readonly static string TRIPLE = "SB";
-        public readonly static string Double = "SB";
+        public readonly static string TRIPLE = "T";
+        public readonly static string Double = "D";
     }
 
     public static class BOARD
     {
         public static double CX = 0;
         public static double CY = 0;
+
+        public static double HK = 0.156;
+
         public static double DRIN = 324;
         public static double DROUT = 340;
         public static double TRIN = 214;

@@ -6,9 +6,9 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new Darts();
+            ICodeWars war = new StrRepeat();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }
-    }
+    }    
 }
