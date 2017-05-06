@@ -12,12 +12,15 @@ public class Wave : ICodeWars
 
     public static string Func(string s)
     {     
-        var res = s.Select((e,i) => 
+        var res = s
+        .Select((e,i) => 
         {
             var str = s.ToCharArray();
             str[i] = char.ToUpper(e);
             return new string(str);
-        }).Where(i => i != s).ToArray();  
+        })
+        .Where(i => i != s)
+        .ToArray();  
         return "null";      
     } 
 } 

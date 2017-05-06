@@ -1,4 +1,5 @@
 using System;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -13,9 +14,12 @@ namespace Codewars
         }
 
         string Func(string s)
-        {  
-           
-            var res = Regex.Split(s.Length % 2 == 0 ? s : s + "_", "(.{2})").Where(i => !string.IsNullOrEmpty(i)).ToArray();
+        {           
+
+            var res = Regex
+            .Split(s.Length % 2 == 0 ? s : s + "_", "(.{2})")
+            .Where(i => !string.IsNullOrEmpty(i))
+            .ToArray();
             return null;
         }
     }
