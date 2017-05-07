@@ -39,12 +39,23 @@ namespace Codewars
             return new string[]{""};
         }
 
-        //Best
+        //Best 
         private static string[] Func2(string[] arr)
         {
             string s = new string(arr.Select(x=>x[0]).ToArray());
             while (Regex.Match(s,"NS|EW|SN|WE").Success) s=Regex.Replace(s,"NS|EW|SN|WE","");
             return s.Select(x=>x=='N' ? "NORTH" : x=='S' ? "SOUTH" : x=='E' ? "EAST" : "WEST").ToArray();
+        }
+
+        //Best Stack
+        private static string[] Func3(string[] arr)
+        {
+            var opposite = new Dictionary<string, string> { ["NORTH"] = "SOUTH", ["SOUTH"] = "NORTH", ["WEST"] = "EAST",["EAST"] = "WEST" };
+            var stack = new Stack<string>();
+            foreach(var dir in arr)
+            {
+                
+            }
         }
     }
 }
