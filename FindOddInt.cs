@@ -11,8 +11,6 @@ public class FindOddInt : ICodeWars
 
     public static int Func(int[] seq)
     {       
-        var res = seq.GroupBy(i => i).Select(i => new { Key = i.Key, Value = i.Count()}).Single(i => i.Value % 2 != 0);    
-                
-        return 0;
+        return seq.GroupBy(i => i).Select(i => new { Key = i.Key, Value = i.Count()}).Single(i => i.Value % 2 != 0).Key;              
     }
 }
