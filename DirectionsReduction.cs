@@ -39,6 +39,7 @@ namespace Codewars
             return new string[]{""};
         }
 
+        //Best
         private static string[] Func2(string[] arr)
         {
             string s = new string(arr.Select(x=>x[0]).ToArray());
