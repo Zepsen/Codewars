@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new MultiplyInt3or5();
+            ICodeWars war = new DirectionsReduction();
             var res = war.Start();
           Console.WriteLine(res.ToString());
         }
