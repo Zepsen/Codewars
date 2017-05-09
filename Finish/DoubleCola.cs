@@ -64,10 +64,27 @@ namespace Codewars
                 }
                 else break;
             }
-
+            if(sum == 0)sum++;
             var countOfRepeatedNames = Math.Pow(2,i);
             var pos = (int)((n - sum) / countOfRepeatedNames);
             return names[pos];
+        }
+
+        //Best
+        private static string Func4(long n)
+        {     
+            string[] names = new string[] { "Sheldon", "Leonard", "Penny", "Rajesh", "Howard" };
+            long x = 5;
+            long i = 1;
+  
+            while (n > x)
+            {
+                n -= x;
+                x *= 2;
+                i *= 2;
+            }
+            
+            return (names[(n - 1)/i]);
         }
        
     }

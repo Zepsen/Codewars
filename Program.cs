@@ -6,9 +6,9 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new DoubleCola();
+            ICodeWars war = new Persistent();
             var res = war.Start();
-          Console.WriteLine(res.ToString());
+            Console.WriteLine(res.ToString());
         }
     }    
     
