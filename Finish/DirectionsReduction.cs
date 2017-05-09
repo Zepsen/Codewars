@@ -52,10 +52,21 @@ namespace Codewars
         {
             var opposite = new Dictionary<string, string> { ["NORTH"] = "SOUTH", ["SOUTH"] = "NORTH", ["WEST"] = "EAST",["EAST"] = "WEST" };
             var stack = new Stack<string>();
-            foreach(var dir in arr)
+            foreach(var direction in arr)
             {
-                
+                var last = stack.Count > 0 ? stack.Peek().ToString() : null;
+                switch(direction)
+                {
+                    case "NORTH": if ("SOUTH".Equals(last)) { stack.Pop(); } else { stack.Push(last); } break;
+                    case "SOUTH": if ("NORTH".Equals(last)) { stack.Pop(); } else { stack.Push(last); } break;
+                    case "EAST":  if ("WEST".Equals(last)) { stack.Pop(); } else { stack.Push(last); } break;
+                    case "WEST":  if ("EAST".Equals(last)) { stack.Pop(); } else { stack.Push(last); } break;
+                }                
             }
+            
+            var res = stack.ToArray();
+            Array.Reverse(res);
+            return res;
         }
     }
 }
