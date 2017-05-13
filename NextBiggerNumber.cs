@@ -11,7 +11,7 @@ namespace Codewars
     {
         public object Start()
         {
-            return Func(2027333);
+            return Func(201211);
         }
 
         public int Func(int num)
@@ -39,7 +39,7 @@ namespace Codewars
 
             var skipped = list.Skip(indx+1).ToList();
             var min = skipped.Min(s => s > list[indx]) ? skipped.Min() : list[indx+1];
-            skipped.RemoveAt(skipped.First(i => i == min));
+            skipped.Remove(min);
             skipped.Add(list[indx]);
             res.Add(min);
             skipped.Sort();
