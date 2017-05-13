@@ -11,7 +11,7 @@ namespace Codewars
     {
         public object Start()
         {
-            return Func(2017);
+            return Func(2027333);
         }
 
         public int Func(int num)
@@ -35,7 +35,16 @@ namespace Codewars
                 }
             }
 
-            return 0;
+            if(indx == 0) return -1;
+
+            var skipped = list.Skip(indx+1).ToList();
+            var min = skipped.Min(s => s > list[indx]) ? skipped.Min() : list[indx+1];
+            skipped.RemoveAt(skipped.First(i => i == min));
+            skipped.Add(list[indx]);
+            res.Add(min);
+            skipped.Sort();
+            res.AddRange(skipped);
+            return Convert.ToInt32(String.Join("", res.ToArray()));            
         }
         
     }
