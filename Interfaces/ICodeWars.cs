@@ -1,5 +1,6 @@
 
-public interface ICodeWars
-{
-    object Start();
-}
+    public interface ICodeWars
+    {
+        object Start();
+    }
+

@@ -8,15 +8,15 @@ namespace Codewars
     {
         public object Start()
         {
-            return Func2(39);
+            return Func(25);
         }
 
         private static int Func(long num)
         {
-            return (num < 10) ? 0 : CountOfPersistent(num);
+            return CountOfPersistent(num);
         }
 
-        private static int CountOfPersistent(long num, int count = 0)
+        private static int CountOfPersistent(long num)
         {            
             long sum = 1;
             while(num > 0)
@@ -24,9 +24,8 @@ namespace Codewars
                 sum *= num % 10;
                 num /= 10;
             }
-
-            count++;
-            return (sum > 9) ? CountOfPersistent(sum, count) : count;
+            
+            return (sum < 9) ? 0 : 1 + CountOfPersistent(sum);
         }
 
 
