@@ -7,16 +7,16 @@ using System.Linq;
 
 namespace Codewars
 {
-    class NextBiggerNumber : ICodeWars, IIntInt
+    class NextBiggerNumber : ICodeWars
     {
         public object Start()
         {
-            return Func(13111);
+            return Func(13);
         }
 
-        public int Func(int num)
+        public long Func(long num)
         {
-            var list = num.ToString().Select(n => n - '0').ToList();
+            var list = num.ToString().Select(n => n-'0').ToList();
             var indx = 0;
            
             for(int i = list.Count - 1 ; i > -1; i--)
@@ -38,7 +38,7 @@ namespace Codewars
             skipped.Sort();
             res.Add(min);            
             res.AddRange(skipped);
-            return Convert.ToInt32(String.Join("", res.ToArray()));            
+            return Convert.ToInt64(String.Join("", res.ToArray()));            
         }
         
     }
