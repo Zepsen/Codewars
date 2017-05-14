@@ -43,6 +43,7 @@ namespace Codewars
             return -1;
         }
 
+        //Best
         private long Func2(long n)
         {
             if (n<10) return -1;

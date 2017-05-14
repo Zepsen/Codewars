@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new NextBiggerNumber();
+            ICodeWars war = new SumStringsAsNumbers();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }
