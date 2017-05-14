@@ -39,11 +39,11 @@ namespace Codewars
                 {
                     numA = temp == 1 ? numA - 1  : numA;
                     temp = numA > numB ? 0 : 1;
-                    var num = (numA + temp * 10) - numB;              
+                    var num = (numA + temp * 10) - numB;
                 }
             }
 
-            res.Add(temp);          
+            res.Add(temp);
             res.Reverse();
             return string.Concat(res);
         }
