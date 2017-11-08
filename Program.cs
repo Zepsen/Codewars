@@ -6,7 +6,7 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new SumStringsAsNumbers();
+            ICodeWars war = new ValidateBraces();
             var res = war.Start();
             Console.WriteLine(res.ToString());
         }
