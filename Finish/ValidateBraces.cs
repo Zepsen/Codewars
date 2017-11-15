@@ -35,7 +35,7 @@ public class ValidateBraces : ICodeWars
                 } else return false;
             }            
         }
-
+        
         
         return stack.Count == 0;
     }
