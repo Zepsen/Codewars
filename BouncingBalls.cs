@@ -6,9 +6,9 @@ namespace Codewars
         {
             var model = new 
             {
-                h = 3,
-                bounce = 0.66,
-                window = 1.5
+                h = 0.0,
+                bounce = 0.0,
+                window = 0.0
             };
 
             return Func(model);
@@ -25,13 +25,15 @@ namespace Codewars
         private int Bouncing(double h, double bounce, double window, ref int res)
         {            
             var bh = h * bounce;
-            if(bh < window) return res++;
+            if(bh <= window) return res++;
             res += 2;
             return Bouncing(bh, bounce, window, ref res);            
         }
 
         private bool Validate(double h, double bounce, double window)
-            => h < 0 || bounce < 0 || bounce > 1 || window > h;
+            => h <= 0 || bounce <= 0 || window <= 0 ||
+               bounce > 1 || 
+               window > h;
         
     }
 }
