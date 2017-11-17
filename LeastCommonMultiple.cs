@@ -12,6 +12,7 @@ namespace Codewars
 
         private object Func(List<int> list)
         {
+            
             return 0;
         }
     }
