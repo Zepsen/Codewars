@@ -32,8 +32,8 @@ namespace Codewars
 
         private bool Validate(double h, double bounce, double window)
             => h <= 0 || bounce <= 0 || window <= 0 ||
-               bounce > 1 || 
-               window > h;
+               bounce >= 1 || 
+               window >= h;
         
     }
 }

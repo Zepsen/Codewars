@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Codewars
 {    
@@ -9,9 +10,14 @@ namespace Codewars
     {
         static void Main(string[] args)
         {
-            ICodeWars war = new BouncingBalls();
-            var res = war.Start();
-            Console.WriteLine(res.ToString());
+            Stopwatch s = new Stopwatch();
+            s.Start();
+                ICodeWars war = new Wildcards();
+                var res = war.Start();
+            s.Stop();
+            
+            Console.WriteLine($"Result: {res.ToString()}");
+            Console.WriteLine($"Execute time: {s.Elapsed}");
         }
     }    
     
