@@ -11,8 +11,9 @@ namespace Codewars
         static void Main(string[] args)
         {
             Stopwatch s = new Stopwatch();
+
             s.Start();
-                ICodeWars war = new Wildcards();
+                ICodeWars war = new DigitalRoot();
                 var res = war.Start();
             s.Stop();
             
