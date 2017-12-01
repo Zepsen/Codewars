@@ -6,7 +6,7 @@ namespace Codewars
     public class DigitalRoot : ICodeWars
     {
         object ICodeWars.Start()
-        {
+        { 
             return Func(1234567890);            
         }
 
