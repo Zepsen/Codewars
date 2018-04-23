@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Codewars
 {
@@ -7,35 +8,25 @@ namespace Codewars
     {
         public object Start()
         {
-            return Func(new List<char> { 'D','D', 'C', 'D', 'C', 'C' }, 2);
+            return Func(new List<char> { 'C', 'C', 'C', 'D', 'D', 'C', 'D', 'C', 'C' }, 2);
         }
 
         public int Func(List<char> xs, int n)
         {
-            
-            int res = 0;
-            int cats = 0;
-            int dogs = 0;
-            for (var i = 0; i < xs.Count; i++)
+            var caught = new HashSet<int>();
+            for (int i = 0; i < xs.Count; i++)
             {
-                if (xs[i] == 'D') {
-                    dogs++;
-                    continue;
-                }
-                
-                cats++;
-                var caught = false;
-                for (int y = i - n; y <= i + n; y++)
+                if (xs[i] == 'C') continue;
+                for (int j = i - n; j <= i + n; j++)
                 {
-                    if (y > -1 && y != i && y < xs.Count && xs[y] == 'D')
-                    {
-                        caught = true;
+                    if (j < 0 || j >= xs.Count) continue;
+                    if (xs[j] == 'C' && !caught.Contains(j)) { 
+                        caught.Add(j); 
+                        break; 
                     }
                 }
-
-                if (!caught) res++;
             }
-            return dogs < cats - res ? dogs : cats - res;
+            return caught.Count;
         }
     }
 }
