@@ -8,7 +8,8 @@ namespace Codewars
     {
         object ICodeWars.Start()
         {
-            return Func(new List<int>{1,1});
+            return null;
+            //return Func(nums: new List<int>{1,1});
             //return Lcm(new List<int>{5});
         }
 

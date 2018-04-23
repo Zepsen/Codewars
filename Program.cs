@@ -13,7 +13,7 @@ namespace Codewars
             Stopwatch s = new Stopwatch();
 
             s.Start();
-                ICodeWars war = new DigitalRoot();
+                ICodeWars war = new UniqueNumbers();
                 var res = war.Start();
             s.Stop();
             
@@ -22,5 +22,17 @@ namespace Codewars
         }
     }    
     
-    
+    class P{
+        int a = 0;
+        int Foo()
+        {
+            a = a + 42;
+            return 1;
+        }
+        void Main()
+        {
+            a = a + Foo(); 
+            Console.WriteLine(a);
+        }
+    }
 }
