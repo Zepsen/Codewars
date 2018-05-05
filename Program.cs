@@ -13,7 +13,7 @@ namespace Codewars
             Stopwatch s = new Stopwatch();
 
             s.Start();
-                ICodeWars war = new CamelCases();
+                ICodeWars war = new AddedChar();
                 var res = war.Start();
             s.Stop();
             
