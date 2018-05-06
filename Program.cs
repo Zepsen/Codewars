@@ -13,8 +13,8 @@ namespace Codewars
             Stopwatch s = new Stopwatch();
 
             s.Start();
-                ICodeWars war = new AddedChar();
-                var res = war.Start();
+                ICodeWars war = new RomeNumbers();
+                var res = war.Start();  
             s.Stop();
             
             Console.WriteLine($"Result: {res.ToString()}");
