@@ -13,8 +13,13 @@ namespace Codewars
             Stopwatch s = new Stopwatch();
 
             s.Start();
+<<<<<<< HEAD
                 ICodeWars war = new UniqueNumbers();
                 var res = war.Start();
+=======
+                ICodeWars war = new RomeNumbers();
+                var res = war.Start();  
+>>>>>>> c719013c62b85e4ed26f6642e25bc1d5f5bd3191
             s.Stop();
             
             Console.WriteLine($"Result: {res.ToString()}");
