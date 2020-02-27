@@ -11,7 +11,7 @@ namespace Codewars
         static void Main(string[] args)
         {
             Stopwatch s = new Stopwatch();
-            ICodeWars war = new Factorial();
+            ICodeWars war = new FinPlanet();
 
             s.Start();
             var res = war.Start();
